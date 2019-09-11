@@ -1,8 +1,22 @@
-# pesy-reason-template
+# moprh-hello-world-pesy-template
 
-This the template used by pesy to bootstrap Reason projects. Since it contains template variables, it cannot be used on it's own.
+> Note: This is a template and since it contains template variables, it cannot be used on it's own.
 
-If you are looking for a template repo to bootstrap your Reason project, you can
+This template can be used to get up and running quickly with [`Morph`](https://github.com/reason-native-web/morph).
 
-1. Try [pesy](https://github.com/esy/pesy), or
-2. Fork [hello-reason](https://github.com/esy-ocaml/hello-reason)
+To bootstrap a application with this template run the following:
+
+Install [`esy`](https://esy.sh) and [`pesy`](https://github.com/esy/pesy) from `npm`.
+
+```sh
+npm -g install esy
+npm -g install pesy@0.5.0-alpha.5
+```
+
+Then create a project folder, cd into that folder and create the project from this template.
+
+```sh
+mkdir my-project
+cd my-project
+pesy --template=https://github.com/reason-native-web/morph-hello-world-pesy-template
+```
