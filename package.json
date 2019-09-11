@@ -70,7 +70,8 @@
     "refmterr": "*",
     "ocaml": "~4.7.0",
     "@opam/morph": "*",
-    "@opam/morph_core": "*"
+    "@opam/morph_core": "*",
+    "@opam/containers": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*",
