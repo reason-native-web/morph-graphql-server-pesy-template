@@ -50,7 +50,8 @@
         "logs.fmt",
         "fmt.tty",
         "lwt",
-        "containers"
+        "containers",
+        "uri"
       ],
       "bin": {
         "<PACKAGE_NAME_UPPER_CAMEL>App.exe": "<PACKAGE_NAME_UPPER_CAMEL>App.re"
@@ -72,7 +73,8 @@
     "@opam/morph": "*",
     "@opam/morph_core": "*",
     "@opam/containers": "*",
-    "@opam/mtime": "*"
+    "@opam/mtime": "*",
+    "@opam/uri": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*",
