@@ -18,5 +18,5 @@ Then create a project folder, cd into that folder and create the project from th
 ```sh
 mkdir my-project
 cd my-project
-pesy --template=https://github.com/reason-native-web/morph-hello-world-pesy-template
+pesy --template=reason-native-web/morph-hello-world-pesy-template
 ```
