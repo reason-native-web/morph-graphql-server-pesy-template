@@ -9,7 +9,7 @@ let handler = (request: Morph_core.Request.t) => {
     CCString.split(~by="/", req_path) |> CCList.filter(s => s != "");
 
   switch (request.meth, path_parts) {
-  | (_, [""]) => Morph_core.Response.text("Hello world!")
+  | (_, []) => Morph_core.Response.text("Hello world!")
   | (_, ["greet", name]) =>
     Morph_core.Response.text("Hello " ++ name ++ "!")
   | (`GET, ["static", ...file_path]) =>
