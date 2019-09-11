@@ -16,6 +16,17 @@ Then run the `esy` command from this project root to install and build depenenci
 
     % esy
 
+You can start the server to try it out (runs `scripts.start` specified in
+`package.json`):
+
+    % esy start
+
+This will start a simple server that runs on port 8080 and has the following routes:
+
+    / -> responds with "Hello world!"
+    /greet/:name -> responds with "Hello ${name}!"
+    /static/path/to/file -> responds with the file
+
 After you make some changes to source code, you can re-run project's build
 again with the same simple `esy` command.
 
