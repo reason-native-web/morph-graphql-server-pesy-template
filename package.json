@@ -50,7 +50,6 @@
         "logs.fmt",
         "fmt.tty",
         "lwt",
-        "containers",
         "uri"
       ],
       "bin": {
@@ -72,7 +71,6 @@
     "ocaml": "~4.7.0",
     "@opam/morph": "*",
     "@opam/morph_core": "*",
-    "@opam/containers": "*",
     "@opam/mtime": "*",
     "@opam/uri": "*"
   },
