@@ -16,13 +16,16 @@ Then run the `esy` command from this project root to install and build depenenci
 
     % esy
 
-Now you can run your editor within the environment (which also includes merlin):
+You can start the server to try it out (runs `scripts.start` specified in
+`package.json`):
 
-    % esy $EDITOR
-    % esy vim
+    % esy start
 
-Alternatively you can try [vim-reasonml](https://github.com/jordwalke/vim-reasonml)
-which loads esy project environments automatically.
+This will start a simple server that runs on port 8080 and has the following routes:
+
+    / -> responds with "Hello world!"
+    /greet/:name -> responds with "Hello ${name}!"
+    /static/path/to/file -> responds with the file
 
 After you make some changes to source code, you can re-run project's build
 again with the same simple `esy` command.
@@ -38,18 +41,5 @@ Documentation for the libraries in the project can be generated with:
 
     % esy doc
     % open-cli `esy echo '#{self.target_dir}/default/_doc/_html/index.html'`
-    
+
 This assumes you have a command like [open-cli](https://github.com/sindresorhus/open-cli) installed on your system.
-
-Shell into environment:
-
-    % esy shell
-
-## Create Prebuilt Release:
-
-`esy` allows creating prebuilt binary packages for your current platform, with
-no dependencies.
-
-    % esy npm-release
-    % cd _release
-    % npm publish

@@ -4,12 +4,6 @@
   "description": "Starter Reason Esy Pesy Project",
   "esy": {
     "build": "refmterr dune build -p #{self.name}",
-    "NOTE": "Optional release Section. Customizes result of `esy release`",
-    "release": {
-      "releasedBinaries": [
-        "<PACKAGE_NAME_UPPER_CAMEL>App.exe"
-      ]
-    },
     "buildEnv": {
       "ODOC_SYNTAX": "re"
     }
@@ -37,13 +31,26 @@
     },
     "library": {
       "require": [
-        "console.lib",
-        "pastel.lib"
+        "opium_core",
+        "morph_core",
+        "mtime",
+        "mtime.clock.os",
+        "logs",
+        "logs.fmt",
+        "fmt.tty",
+        "lwt"
       ]
     },
     "bin": {
       "require": [
-        "<PUBLIC_LIB_NAME>"
+        "<PUBLIC_LIB_NAME>",
+        "morph",
+        "morph_core",
+        "logs",
+        "logs.fmt",
+        "fmt.tty",
+        "lwt",
+        "uri"
       ],
       "bin": {
         "<PACKAGE_NAME_UPPER_CAMEL>App.exe": "<PACKAGE_NAME_UPPER_CAMEL>App.re"
@@ -58,12 +65,14 @@
   },
   "dependencies": {
     "@opam/dune": "*",
-    "@reason-native/console": "*",
-    "@reason-native/pastel": "*",
     "@reason-native/rely": "*",
     "@esy-ocaml/reason": "*",
     "refmterr": "*",
-    "ocaml": "~4.7.0"
+    "ocaml": "~4.7.0",
+    "@opam/morph": "*",
+    "@opam/morph_core": "*",
+    "@opam/mtime": "*",
+    "@opam/uri": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*",
@@ -72,6 +81,15 @@
     "pesy": "*"
   },
   "resolutions": {
-    "pesy": "esy/pesy#3d8a18385e07fa11daabe811814fae3f869ad355"
+    "pesy": "esy/pesy#3d8a18385e07fa11daabe811814fae3f869ad355",
+    "@opam/h2-lwt-unix": "anmonteiro/ocaml-h2:h2-lwt-unix.opam#737bce6ec7e4d7f4ad0b314165496431b7eb30a9",
+    "@opam/h2-lwt": "anmonteiro/ocaml-h2:h2-lwt.opam#737bce6ec7e4d7f4ad0b314165496431b7eb30a9",
+    "@opam/h2": "anmonteiro/ocaml-h2:h2.opam#737bce6ec7e4d7f4ad0b314165496431b7eb30a9",
+    "@opam/httpaf-lwt-unix": "anmonteiro/httpaf:httpaf-lwt-unix.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
+    "@opam/httpaf-lwt": "anmonteiro/httpaf:httpaf-lwt.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
+    "@opam/httpaf": "anmonteiro/httpaf:httpaf.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
+    "@opam/morph": "reason-native-web/morph:morph.opam#f4b0248431b66b313085fa46f7dec7ff3e4aa989",
+    "@opam/morph_core": "reason-native-web/morph:morph_core.opam#f4b0248431b66b313085fa46f7dec7ff3e4aa989",
+    "@opam/opium_core": "rgrinberg/opium:opium_core.opam#287b83f85bcf6c75d503b1edab77c7ec524f9090"
   }
 }
