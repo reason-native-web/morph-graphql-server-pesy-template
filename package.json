@@ -88,8 +88,8 @@
     "@opam/httpaf-lwt-unix": "anmonteiro/httpaf:httpaf-lwt-unix.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
     "@opam/httpaf-lwt": "anmonteiro/httpaf:httpaf-lwt.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
     "@opam/httpaf": "anmonteiro/httpaf:httpaf.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
-    "@opam/morph": "reason-native-web/morph:morph.opam#0c5c2aaaff854174748bcf13a73805d229e20981",
-    "@opam/morph_core": "reason-native-web/morph:morph_core.opam#0c5c2aaaff854174748bcf13a73805d229e20981",
+    "@opam/morph": "reason-native-web/morph:morph.opam#f4b0248431b66b313085fa46f7dec7ff3e4aa989",
+    "@opam/morph_core": "reason-native-web/morph:morph_core.opam#f4b0248431b66b313085fa46f7dec7ff3e4aa989",
     "@opam/opium_core": "rgrinberg/opium:opium_core.opam#287b83f85bcf6c75d503b1edab77c7ec524f9090"
   }
 }

@@ -3,6 +3,8 @@ Logs.set_level(Some(Logs.Info));
 Logs.set_reporter(Logs_fmt.reporter());
 
 let handler = (request: Morph_core.Request.t) => {
+  open Morph_core;
+
   let path_parts =
     request.target
     |> Uri.of_string
@@ -11,12 +13,15 @@ let handler = (request: Morph_core.Request.t) => {
     |> List.filter(s => s != "");
 
   switch (request.meth, path_parts) {
-  | (_, []) => Morph_core.Response.text("Hello world!")
+  | (_, []) => Morph_core.Response.text("Hello world!", Response.empty)
   | (_, ["greet", name]) =>
-    Morph_core.Response.text("Hello " ++ name ++ "!")
+    Morph_core.Response.text("Hello " ++ name ++ "!", Response.empty)
   | (`GET, ["static", ...file_path]) =>
-    Morph_core.Response.static(file_path |> String.concat("/"))
-  | (_, _) => Morph_core.Response.not_found()
+    Morph_core.Response.static(
+      file_path |> String.concat("/"),
+      Response.empty,
+    )
+  | (_, _) => Response.not_found(Response.empty)
   };
 };
 
