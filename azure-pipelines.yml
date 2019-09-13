@@ -14,8 +14,8 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-      - template: utils/use-node.yml
-      - template: utils/use-esy.yml
+      - template: .ci/utils/use-node.yml
+      - template: .ci/utils/use-esy.yml
       - script: mkdir $(Pipeline.Workspace)/morph-hello-world
       - script: "pesy --template=reason-native-web/morph-hello-world-pesy-template"
         displayName: "Initialize pesy template"
@@ -28,8 +28,8 @@ stages:
     pool:
       vmImage: macOS-latest
     steps:
-      - template: utils/use-node.yml
-      - template: utils/use-esy.yml
+      - template: .ci/utils/use-node.yml
+      - template: .ci/utils/use-esy.yml
       - script: mkdir $(Pipeline.Workspace)/morph-hello-world
       - script: "pesy --template=reason-native-web/morph-hello-world-pesy-template"
         displayName: "Initialize pesy template"
@@ -42,8 +42,8 @@ stages:
   #   pool:
   #     vmImage: windows-latest
   #   steps:
-  #     - template: utils/use-node.yml
-  #     - template: utils/use-esy.yml
+  #     - template: .ci/utils/use-node.yml
+  #     - template: .ci/utils/use-esy.yml
   #     - script: mkdir $(Pipeline.Workspace)/morph-hello-world
   #     - script: "pesy --template=reason-native-web/morph-hello-world-pesy-template"
   #       displayName: "Initialize pesy template"
