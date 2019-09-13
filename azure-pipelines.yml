@@ -17,6 +17,7 @@ stages:
       - template: .ci/utils/use-node.yml
       - template: .ci/utils/use-esy.yml
       - script: mkdir $(Pipeline.Workspace)/morph-hello-world
+        displayName: "Create project folder"
       - script: "pesy --template=reason-native-web/morph-hello-world-pesy-template"
         displayName: "Initialize pesy template"
         workingDirectory: $(Pipeline.Workspace)/morph-hello-world
@@ -31,6 +32,7 @@ stages:
       - template: .ci/utils/use-node.yml
       - template: .ci/utils/use-esy.yml
       - script: mkdir $(Pipeline.Workspace)/morph-hello-world
+        displayName: "Create project folder"
       - script: "pesy --template=reason-native-web/morph-hello-world-pesy-template"
         displayName: "Initialize pesy template"
         workingDirectory: $(Pipeline.Workspace)/morph-hello-world
@@ -45,6 +47,7 @@ stages:
   #     - template: .ci/utils/use-node.yml
   #     - template: .ci/utils/use-esy.yml
   #     - script: mkdir $(Pipeline.Workspace)/morph-hello-world
+  #       displayName: "Create project folder"
   #     - script: "pesy --template=reason-native-web/morph-hello-world-pesy-template"
   #       displayName: "Initialize pesy template"
   #       workingDirectory: $(Pipeline.Workspace)/morph-hello-world
