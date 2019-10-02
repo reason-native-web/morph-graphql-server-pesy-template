@@ -10,7 +10,7 @@ Install [`esy`](https://esy.sh) and [`pesy`](https://github.com/esy/pesy) from `
 
 ```sh
 npm -g install esy
-npm -g install pesy@0.5.0-alpha.5
+npm -g install pesy@0.5.0-alpha.7
 ```
 
 Then create a project folder, cd into that folder and create the project from this template.
