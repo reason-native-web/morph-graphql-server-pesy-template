@@ -33,6 +33,8 @@
       "imports": [
         "Opium_core = require('opium_core')",
         "Morph = require('morph')",
+        "Morph_graphql_server = require('morph_graphql_server')",
+        "Graphql_lwt = require('graphql-lwt')",
         "Mtime = require('mtime')",
         "Mtime_clock = require('mtime/clock/os')",
         "Logs = require('logs')",
@@ -71,6 +73,7 @@
     "@reason-native-web/morph": "*",
     "@reason-native-web/morph_server": "*",
     "@reason-native-web/morph_server_http": "*",
+    "@reason-native-web/morph_graphql_server": "*",
     "@opam/mtime": "*",
     "@opam/uri": "*"
   },

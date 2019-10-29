@@ -12,7 +12,7 @@ You need Esy, you can install the beta using [npm](https://npmjs.com):
 
 > NOTE: Make sure `esy --version` returns at least `0.5.8` for this project to build.
 
-Then run the `esy` command from this project root to install and build depenencies.
+Then run the `esy` command from this project root to install and build dependencies.
 
     % esy
 
@@ -21,11 +21,12 @@ You can start the server to try it out (runs `scripts.start` specified in
 
     % esy start
 
-This will start a simple server that runs on port 8080 and has the following routes:
+This will start a simple graphql server that runs on port 8080 and has the following routes:
 
-    / -> responds with "Hello world!"
-    /greet/:name -> responds with "Hello ${name}!"
-    /static/path/to/file -> responds with the file
+    GET / -> responds with "Hello world!"
+    GET /greet/:name -> responds with "Hello ${name}!"
+    GET /graphql -> responds GraphiQL user interface
+    POST /graphql -> responds with GraphQL response
 
 After you make some changes to source code, you can re-run project's build
 again with the same simple `esy` command.

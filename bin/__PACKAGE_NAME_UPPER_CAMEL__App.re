@@ -2,6 +2,8 @@ Fmt_tty.setup_std_outputs();
 Logs.set_level(Some(Logs.Info));
 Logs.set_reporter(Logs_fmt.reporter());
 
+let graphql_handler = Morph_graphql_server.make(Library.Schema.schema);
+
 let handler = (request: Morph.Request.t) => {
   open Morph;
 
@@ -16,8 +18,9 @@ let handler = (request: Morph.Request.t) => {
   | (_, []) => Morph.Response.text("Hello world!", Response.empty)
   | (_, ["greet", name]) =>
     Morph.Response.text("Hello " ++ name ++ "!", Response.empty)
-  | (`GET, ["static", ...file_path]) =>
-    Morph.Response.static(file_path |> String.concat("/"), Response.empty)
+  | (`GET, ["graphql"]) =>
+    Morph.Response.text(Library.GraphiQL.html, Morph.Response.empty)
+  | (_, ["graphql"]) => graphql_handler(request)
   | (_, _) => Response.not_found(Response.empty)
   };
 };

@@ -1,4 +1,4 @@
-# moprh-hello-world-pesy-template
+# morph-graphql-server-pesy-template
 
 > Note: This is a template and since it contains template variables, it cannot be used on it's own.
 
@@ -18,5 +18,5 @@ Then create a project folder, cd into that folder and create the project from th
 ```sh
 mkdir my-project
 cd my-project
-pesy --template=reason-native-web/morph-hello-world-pesy-template
+pesy --template=reason-native-web/morph-graphql-server-pesy-template
 ```
