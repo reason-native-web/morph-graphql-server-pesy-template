@@ -4,32 +4,30 @@ Logs.set_reporter(Logs_fmt.reporter());
 
 let graphql_handler = Morph_graphql_server.make(Library.Schema.schema);
 
-let handler = (request: Morph.Request.t) => {
-  open Morph;
-
+let handler: Morph.Server.handler = (req: Morph.Request.t) => {
   let path_parts =
-    request.target
+    req.request.target
     |> Uri.of_string
     |> Uri.path
     |> String.split_on_char('/')
     |> List.filter(s => s != "");
 
-  switch (request.meth, path_parts) {
-  | (_, []) => Morph.Response.text("Hello world!", Response.empty)
+  switch (req.request.meth, path_parts) {
+  | (_, []) => Morph.Response.text("Hello world!") |> Lwt.return
   | (_, ["greet", name]) =>
-    Morph.Response.text("Hello " ++ name ++ "!", Response.empty)
+    Morph.Response.text("Hello " ++ name ++ "!") |> Lwt.return
   | (`GET, ["graphql"]) =>
-    Morph.Response.text(Library.GraphiQL.html, Morph.Response.empty)
-  | (_, ["graphql"]) => graphql_handler(request)
-  | (_, _) => Response.not_found(Response.empty)
+    Morph.Response.html(Library.GraphiQL.html) |> Lwt.return
+  | (_, ["graphql"]) => graphql_handler(req)
+  | (_, _) => Morph.Response.not_found() |> Lwt.return
   };
 };
 
-let http_server = Morph_server_http.make();
+let http_server = Morph.Server.make();
 
 Morph.start(
   ~servers=[http_server],
-  ~middlewares=[Library.Middleware.logger],
+  ~middlewares=[],
   handler,
 )
 |> Lwt_main.run;

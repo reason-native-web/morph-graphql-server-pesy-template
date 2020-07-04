@@ -31,12 +31,9 @@
     },
     "library": {
       "imports": [
-        "Opium_core = require('opium_core')",
         "Morph = require('morph')",
         "Morph_graphql_server = require('morph_graphql_server')",
         "Graphql_lwt = require('graphql-lwt')",
-        "Mtime = require('mtime')",
-        "Mtime_clock = require('mtime/clock/os')",
         "Logs = require('logs')",
         "Lwt = require('lwt')"
       ]
@@ -45,7 +42,6 @@
       "imports": [
         "Library = require('<PUBLIC_LIB_NAME>')",
         "Morph = require('morph')",
-        "Morph_server_http = require('morph_server_http')",
         "Logs = require('logs')",
         "Logs_fmt = require('logs/fmt')",
         "Fmt_tty = require('fmt/tty')",
@@ -65,29 +61,18 @@
     "doc-path": "esy echo #{self.target_dir}/default/_doc/_html/index.html"
   },
   "dependencies": {
-    "@opam/dune": "*",
+    "@opam/dune": "^2.6.0",
     "@reason-native/rely": "*",
     "@esy-ocaml/reason": "*",
     "refmterr": "*",
-    "ocaml": "~4.7.0",
-    "@reason-native-web/morph": "*",
-    "@reason-native-web/morph_server": "*",
-    "@reason-native-web/morph_server_http": "*",
-    "@reason-native-web/morph_graphql_server": "*",
-    "@opam/mtime": "*",
+    "ocaml": "~4.8.0",
+    "@reason-native-web/morph": "^0.5.0",
+    "@reason-native-web/morph_graphql_server": "^0.5.0",
     "@opam/uri": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*",
-    "ocaml": "~4.7.0",
     "@opam/odoc": "*",
-    "@pesy/esy-pesy": "0.1.0-alpha.3"
-  },
-  "resolutions": {
-    "@pesy/esy-pesy": "esy/pesy#2416a5e9f874f334120bec46776e0eece06d7a45",
-    "@opam/httpaf-lwt-unix": "anmonteiro/httpaf:httpaf-lwt-unix.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
-    "@opam/httpaf-lwt": "anmonteiro/httpaf:httpaf-lwt.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
-    "@opam/httpaf": "anmonteiro/httpaf:httpaf.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
-    "@opam/opium_core": "rgrinberg/opium:opium_core.opam#287b83f85bcf6c75d503b1edab77c7ec524f9090"
+    "@pesy/esy-pesy": "0.1.0-alpha.9"
   }
 }
