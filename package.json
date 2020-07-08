@@ -8,6 +8,10 @@
       "ODOC_SYNTAX": "re"
     }
   },
+  "pesy": {
+    "azure-project": "prometheansacrifice/morph-graphql-server-pesy-template",
+    "github": "reason-native-web/morph-graphql-server-pesy-template"
+  },
   "buildDirs": {
     "test": {
       "imports": [
