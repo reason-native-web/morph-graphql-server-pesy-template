@@ -11,10 +11,12 @@ steps:
     continueOnError: true
     condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
     displayName: "esy export-dependencies"
+    workingDirectory: $(Pipeline.Workspace)/hello-reason
 
   - bash: pwd && ls _export/* && mv _export '$(Build.StagingDirectory)' && ls '$(Build.StagingDirectory)/_export/'
     condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
     displayName: '[Cache][Publish] move export to staging dir'
+    workingDirectory: $(Pipeline.Workspace)/hello-reason
 
   # - bash: cd $ESY__CACHE_INSTALL_PATH && tar -czf $(Build.StagingDirectory)/esy-cache.tar .
   #   workingDirectory: ''

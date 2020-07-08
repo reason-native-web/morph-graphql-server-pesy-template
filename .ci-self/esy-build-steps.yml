@@ -1,0 +1,25 @@
+# Cross-platform set of build steps for building esy projects
+
+steps:
+  - template: utils/use-node.yml
+  - template: utils/use-esy.yml
+  - script: "npm install -g pesy@next"
+    displayName: "install pesy" 
+  - script: "pesy --fetch-cache=false --directory $(Pipeline.Workspace)/hello-reason --template=reason-native-web/morph-graphql-server-pesy-template#$(Build.SourceBranch)"
+    displayName: "Initialize pesy template"
+  - script: "esy test"
+    displayName: "esy test"
+    workingDirectory: $(Pipeline.Workspace)/hello-reason
+  - template: utils/publish-build-cache.yml
+  - task: PublishBuildArtifacts@1  
+    displayName: 'Upload project directory'
+    # TODO: The CI Build caches are pulled down by the last successful buildID
+    # for the target branch.
+    inputs:
+        pathToPublish: '$(Pipeline.Workspace)'
+        artifactName: 'project-snapshot-$(Agent.OS)'
+        parallel: true
+        parallelCount: 8
+
+  # Run tests or any additional steps here
+  # - script: esy b dune runtest
