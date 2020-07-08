@@ -7,8 +7,8 @@ steps:
     displayName: "install pesy" 
   - script: "pesy --fetch-cache=false --directory $(Pipeline.Workspace)/hello-reason --template=reason-native-web/morph-graphql-server-pesy-template#$(Build.SourceBranch)"
     displayName: "Initialize pesy template"
-  - script: "esy start"
-    displayName: "esy start (running the boilerplate app)"
+  - script: "esy test"
+    displayName: "esy test"
     workingDirectory: $(Pipeline.Workspace)/hello-reason
   - template: utils/publish-build-cache.yml
   - task: PublishBuildArtifacts@1  
