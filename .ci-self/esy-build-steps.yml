@@ -5,7 +5,7 @@ steps:
   - template: utils/use-esy.yml
   - script: "npm install -g pesy@next"
     displayName: "install pesy" 
-  - script: "pesy --directory $(Pipeline.Workspace)/hello-reason --template=reason-native-web/morph-graphql-server-pesy-template#$(Build.SourceBranch)"
+  - script: "pesy --fetch-cache=no --directory $(Pipeline.Workspace)/hello-reason --template=reason-native-web/morph-graphql-server-pesy-template#$(Build.SourceBranch)"
     displayName: "Initialize pesy template"
   - script: "esy start"
     displayName: "esy start (running the boilerplate app)"
