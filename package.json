@@ -78,5 +78,8 @@
     "@opam/merlin": "*",
     "@opam/odoc": "*",
     "@pesy/esy-pesy": "0.1.0-alpha.9"
+  },
+  "resolutions": {
+    "@opam/zarith": "1.7"
   }
 }
