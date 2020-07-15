@@ -4,30 +4,31 @@ Logs.set_reporter(Logs_fmt.reporter());
 
 let graphql_handler = Morph_graphql_server.make(Library.Schema.schema);
 
-let handler: Morph.Server.handler = (req: Morph.Request.t) => {
-  let path_parts =
-    req.request.target
-    |> Uri.of_string
-    |> Uri.path
-    |> String.split_on_char('/')
-    |> List.filter(s => s != "");
+let graphiql_handler = _ =>
+  Library.TyxmlRender.respond_html(Library.GraphiQL.html) |> Lwt.return;
 
-  switch (req.request.meth, path_parts) {
-  | (_, []) => Morph.Response.text("Hello world!") |> Lwt.return
-  | (_, ["greet", name]) =>
-    Morph.Response.text("Hello " ++ name ++ "!") |> Lwt.return
-  | (`GET, ["graphql"]) =>
-    Morph.Response.html(Library.GraphiQL.html) |> Lwt.return
-  | (_, ["graphql"]) => graphql_handler(req)
-  | (_, _) => Morph.Response.not_found() |> Lwt.return
+let get_routes =
+  Routes.[
+    empty @--> (_ => Morph.Response.text("Hello world!") |> Lwt.return),
+    s("graphql") /? nil @--> graphiql_handler,
+  ];
+
+let post_routes = Routes.[s("graphql") /? nil @--> graphql_handler];
+
+let port =
+  switch (Sys.getenv_opt("PORT")) {
+  | Some(p) => int_of_string(p)
+  | None => 5050
   };
-};
 
-let http_server = Morph.Server.make();
+let http_server =
+  Morph.Server.make(~port, ~address=Unix.inet_addr_loopback, ());
 
 Morph.start(
   ~servers=[http_server],
-  ~middlewares=[],
-  handler,
+  ~middlewares=[
+    Morph.Middlewares.Static.make(~path="public", ~public_path="./public"),
+  ],
+  Morph.Router.make(~get=get_routes, ~post=post_routes, ()),
 )
 |> Lwt_main.run;
