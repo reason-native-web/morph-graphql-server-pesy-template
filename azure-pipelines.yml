@@ -14,7 +14,7 @@ jobs:
   - template: .ci-self/build-platform.yml
     parameters:
       platform: Linux
-      vmImage: ubuntu-16.04
+      vmImage: ubuntu-lates
 
   - template: .ci-self/build-platform.yml
     parameters:
