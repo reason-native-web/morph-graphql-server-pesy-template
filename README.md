@@ -1,6 +1,6 @@
 # morph-graphql-server-pesy-template
 
-> Note: This is a template and since it contains template variables, it cannot be used on it's own
+> Note: This is a template and since it contains template variables, it cannot be used on it's own.
 
 This template can be used to get up and running quickly with [`Morph`](https://github.com/reason-native-web/morph).
 
