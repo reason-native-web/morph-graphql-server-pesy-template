@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "@opam/dune": "^2.6.0",
+    "@pesy/esy-pesy": "0.1.0-alpha.11",
     "@reason-native/rely": "*",
     "@esy-ocaml/reason": "*",
     "refmterr": "*",
@@ -86,8 +87,7 @@
   "devDependencies": {
     "@opam/merlin": "*",
     "@opam/odoc": "*",
-    "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam",
-    "@pesy/esy-pesy": "0.1.0-alpha.11"
+    "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam"
   },
   "resolutions": {
     "@opam/zarith": "1.7"

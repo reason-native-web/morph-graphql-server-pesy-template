@@ -16,7 +16,7 @@ build: [
 depends: [
   "ocaml" {>= "4.03.0"}
   "base-unix"
-  "dune"
+  "dune" {>= "2.0.0"}
   "lwt"
   "cstruct" {=version}
 ]
@@ -27,9 +27,9 @@ structures directly from OCaml.  It supports both reading and writing to these
 structures, and they are accessed via the `Bigarray` module."""
 url {
   src:
-    "https://github.com/mirage/ocaml-cstruct/releases/download/v5.1.1/cstruct-v5.1.1.tbz"
+    "https://github.com/mirage/ocaml-cstruct/releases/download/v5.2.0/cstruct-v5.2.0.tbz"
   checksum: [
-    "sha256=55d1f42cb85f7872fee499c5ed382aea17b06d55d1709e071d1ba85c7a09fef3"
-    "sha512=c3aa9a5a9125a1d022506a76fd7cdf32b21edcdc9df1202d8a9f382d02a28a33fea9a958f79e9302907ade1fce3f166b620c320aed6486e3efcc9a7464379cab"
+    "sha256=6bfef3753fab08cc638c07ca39f68d629087768f6a5cfeffc519d42018956a75"
+    "sha512=4e8cb53801980dacb9c9153bada89557ffcd9afaac262592fe6243bec3e76d5d1cfe3babe133a9a32e35ed00d98a4b54d55403e8505cca6a1328be50fadb5f37"
   ]
 }
