@@ -6,6 +6,17 @@
     "build": "refmterr dune build -p #{self.name}",
     "buildEnv": {
       "ODOC_SYNTAX": "re"
+    },
+    "release": {
+      "rewritePrefix": true,
+      "bin": [
+        "MorphPlaygroundApp.exe"
+      ],
+      "includePackages": [
+        "root",
+        "@reason-native-web/esy-openssl",
+        "esy-gmp"
+      ]
     }
   },
   "pesy": {
