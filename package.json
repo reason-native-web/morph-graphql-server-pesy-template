@@ -10,7 +10,7 @@
     "release": {
       "rewritePrefix": true,
       "bin": [
-        "MorphPlaygroundApp.exe"
+        "<PACKAGE_NAME_UPPER_CAMEL>App"
       ],
       "includePackages": [
         "root",
@@ -41,7 +41,7 @@
         "Test = require('<TEST_LIB_NAME>')"
       ],
       "bin": {
-        "Run<PACKAGE_NAME_UPPER_CAMEL>Tests.exe": "Run<PACKAGE_NAME_UPPER_CAMEL>Tests.re"
+        "Run<PACKAGE_NAME_UPPER_CAMEL>Tests": "Run<PACKAGE_NAME_UPPER_CAMEL>Tests.re"
       }
     },
     "library": {
@@ -70,13 +70,13 @@
         "Routes = require('routes')"
       ],
       "bin": {
-        "<PACKAGE_NAME_UPPER_CAMEL>App.exe": "<PACKAGE_NAME_UPPER_CAMEL>App.re"
+        "<PACKAGE_NAME_UPPER_CAMEL>App": "<PACKAGE_NAME_UPPER_CAMEL>App.re"
       }
     }
   },
   "scripts": {
-    "start": "esy x <PACKAGE_NAME_UPPER_CAMEL>App.exe",
-    "test": "esy x Run<PACKAGE_NAME_UPPER_CAMEL>Tests.exe",
+    "start": "esy x <PACKAGE_NAME_UPPER_CAMEL>App",
+    "test": "esy x Run<PACKAGE_NAME_UPPER_CAMEL>Tests",
     "format": "dune build @fmt --auto-promote --root .",
     "doc": "esy dune build @doc",
     "doc-path": "esy echo #{self.target_dir}/default/_doc/_html/index.html"
